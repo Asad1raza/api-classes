@@ -1,56 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Cuurency Coverter</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <title>Currency Converter</title>
 </head>
 <body>
-    <div class="container">
+  <div class="container">
     <h2>Currency Converter</h2>
-<form action="">
-    <div class="amount">
+    <form id="converter-form">
+      <div class="amount">
         <p>Enter Amount</p>
-        <input value="100" type="text">
-    </div>
-    <div class="dropdown">
+        <input value="100" type="number" id="amount" />
+      </div>
+      <div class="dropdown">
         <div class="from">
-            <p>From</p>
-            <div class="select-container">
-                <img src="https://flagsapi.com/US/flat/64.png" alt="">
-                <select name="from">
-                    <option value="USD">USD</option>
-                    <option value="PKR">PKR</option>
-                    <option value="EUR">EUR</option>
-                    <option value="AUD">AUD</option>
-                </select>                
-            </div>
+          <p>From</p>
+          <div class="select-container">
+            <img src="https://flagsapi.com/US/flat/64.png" alt="" />
+            <select name="from"></select>
+          </div>
         </div>
         <i class="fa-solid fa-arrow-right-arrow-left"></i>
         <div class="to">
-              <p>To</p>
-            <div class="select-container">
-                <img src="https://flagsapi.com/PK/flat/64.png" alt="">
-                <select name="from">
-                    <option value="USD">USD</option>
-                    <option value="PKR" selected>PKR</option>
-                    <option value="EUR">EUR</option>
-                    <option value="AUD">AUD</option>
-                </select>                
-            </div>
+          <p>To</p>
+          <div class="select-container">
+            <img src="https://flagsapi.com/PK/flat/64.png" alt="" />
+            <select name="to"></select>
+          </div>
         </div>
-    </div>
-    <div class="msg">1USD = 383PKR</div>
-    <button>Get Exchange Rate</button>
-</form>
-</div>
-    
-    <script src="index.js"></script>
-    <script src="async.js"></script>
-    <script src="ppromise.js"></script>
-    <script src="api.js"></script>
-    <script src="CurrConverter.js"></script>
+      </div>
+      <div class="msg">1 USD = 283 PKR</div>
+      <button type="submit">Get Exchange Rate</button>
+    </form>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
