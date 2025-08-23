@@ -14,6 +14,12 @@ const fromCurr = document.querySelector(".from select");
 const toCurr = document.querySelector(".to select");
 const msg = document.querySelector(".msg");
 
+window.addEventListener("load", ()=>{
+  updateExchangeRate();
+
+})
+
+
 // Populate dropdowns
 for (let select of dropdowns) {
   for (let currCode in countryList) {
@@ -44,10 +50,34 @@ const updateFlag = (element) => {
   img.src = newSrc;
 };
 
-btn.addEventListener("click", async (evt) => {
+btn.addEventListener("click",  (evt) => {
   evt.preventDefault();
+  updateExchangeRate();
 
-  let amount = document.querySelector(".amount input");
+  // let amount = document.querySelector(".amount input");
+  // let amtVal = amount.value;
+
+  // if (amtVal === "" || amtVal <= 0) {
+  //   amtVal = 1;
+  //   amount.value = "1";
+  // }
+
+  
+  // const URL = `${BASE_URL}/${fromCurr.value}`;
+  // let response = await fetch(URL);
+  // const data = await response.json();
+
+  // let rate = data.rates[toCurr.value];  
+
+  // console.log("Rate:", rate);
+
+  // let finalAmount = amtVal * rate;  
+
+  // msg.innerText = `${amtVal} ${fromCurr.value} = ${finalAmount.toFixed(2)} ${toCurr.value}`;
+});
+
+const updateExchangeRate = async ()=>{
+    let amount = document.querySelector(".amount input");
   let amtVal = amount.value;
 
   if (amtVal === "" || amtVal <= 0) {
@@ -55,16 +85,16 @@ btn.addEventListener("click", async (evt) => {
     amount.value = "1";
   }
 
-  // ✅ New API request
+  
   const URL = `${BASE_URL}/${fromCurr.value}`;
   let response = await fetch(URL);
   const data = await response.json();
-
-  // ✅ correct way to access rate
+  
   let rate = data.rates[toCurr.value];  
+
   console.log("Rate:", rate);
 
   let finalAmount = amtVal * rate;  
 
   msg.innerText = `${amtVal} ${fromCurr.value} = ${finalAmount.toFixed(2)} ${toCurr.value}`;
-});
+}
